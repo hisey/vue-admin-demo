@@ -1,9 +1,9 @@
-/* 外访案件模块api
+/* 案件模块api
  */
 
 import fetch from '../utils/fetch'
 
-/* 外访案件列表 
+/* 案件列表 
 */
 const outBoundList = (currPage, pageSize, searchType, keyWord, searchRangeType, min, max, outboundStatus, dateTime) => fetch.get('/outBoundManage/outBoundList', {
   currPage,  //页码
@@ -13,12 +13,12 @@ const outBoundList = (currPage, pageSize, searchType, keyWord, searchRangeType, 
   searchRangeType,  //范围搜索类型
   min,  //范围搜索最小值
   max,  //范围搜索最大值
-  dateMin: dateTime[0] || "",  //外访日期时间搜索最小值
-  dateMax: dateTime[1] || "",  //外访日期时间搜索最大值
-  outboundStatus,  //外访状态
+  dateMin: dateTime[0] || "",  //日期时间搜索最小值
+  dateMax: dateTime[1] || "",  //日期时间搜索最大值
+  outboundStatus,  //状态
 })
 
-/* 外访审批案件列表
+/* 审批案件列表
 */
 const outApproveList = (currPage, pageSize, searchType, keyWord, status) => fetch.get('/outBoundManage/outApproveList', {
   currPage,  //页码
@@ -38,14 +38,14 @@ const outRecordDetail = (applyId) => fetch.get('/outBoundManage/outRecordDetail'
  * 审批录入
  */
 const addOutRecord = (collectId, applyId, name, orderNumber, outboundAddress, outboundTime, outboundStore, outboundPerson, contactState, commitmentTime, commitmentAmount, feedback) => fetch.post('/outBoundManage/addOutRecord', {
-  collectId, //催收ID
-  applyId, //外访申请ID
+  collectId, //ID
+  applyId, //申请ID
   name, //客户姓名
   orderNumber, //订单号
-  outboundAddress, //外访地址
-  outboundTime, //外访日期
-  outboundStore, //外访门店
-  outboundPerson, //外访人员
+  outboundAddress, //地址
+  outboundTime, //日期
+  outboundStore, //门店
+  outboundPerson, //人员
   contactState, //接触情况
   commitmentTime, //承诺日期
   commitmentAmount, //承诺金额
@@ -63,7 +63,7 @@ const batchOutApprove = (applyIds, handleCode, rejectReason, remark) => fetch.po
 })
 
 /*
-批量导出外访案件 
+批量导出案件 
  */
 const downloadOutBound = (currPage, pageSize, searchType, keyWord, searchRangeType, min, max, outboundStatus, dateTime) => fetch.get('/outBoundManage/downloadOutBound', {
   currPage,  //页码
@@ -73,9 +73,9 @@ const downloadOutBound = (currPage, pageSize, searchType, keyWord, searchRangeTy
   searchRangeType,  //范围搜索类型
   min,  //范围搜索最小值
   max,  //范围搜索最大值
-  outboundStatus,  //外访状态
-  dateMin: dateTime[0] || "",  //外访日期时间搜索最小值
-  dateMax: dateTime[1] || "",  //外访日期时间搜索最大值
+  outboundStatus,  //状态
+  dateMin: dateTime[0] || "",  //日期时间搜索最小值
+  dateMax: dateTime[1] || "",  //日期时间搜索最大值
 })
 
 const downloadOutApprove = (currPage, pageSize, searchType, keyWord, status) => fetch.get('/outBoundManage/downloadOutBound', {

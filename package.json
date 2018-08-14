@@ -2,7 +2,7 @@
   "name": "demo-after-loan-admin",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "贷后管理系统",
+  "description": "管理系统",
   "author": "hisey",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

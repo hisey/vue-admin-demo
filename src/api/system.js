@@ -60,12 +60,12 @@ const getRoleGroupList = () => fetch.get('/adminManage/roleGroupList', {
 
 })
 
-// 获取委外公司列表
+// 获取公司列表
 const showCompanyList = (currPage, pageSize, companyName, companyRankCode, contactName, adminName) => fetch.get('/adminManage/showCompanyList', {
   currPage, pageSize, companyName, companyRankCode, contactName, adminName
 })
 
-// 获取委外公司信息
+// 获取公司信息
 const getCompanyInfo = (companyId) => fetch.get('/adminManage/getCompanyInfo', {
   companyId
 })
@@ -76,7 +76,7 @@ const entrustAdminList = () => fetch.get('/adminManage/entrustAdminList', {
 
 })
 
-//新增委外公司 
+//新增公司 
 const addCompany = (companyName, companyRankCode, contactName, contactMobile, corporationName, firstTimeFormat, companyAddress, bankName, accountName, account, adminId, ) => fetch.post('/adminManage/addCompany', {
   companyName,
   companyRankCode,
@@ -91,7 +91,7 @@ const addCompany = (companyName, companyRankCode, contactName, contactMobile, co
   adminId,
 })
 
-//编辑委外委外公司
+//编辑公司
 const editCompany = (companyId, companyName, companyRankCode, contactName, contactMobile, corporationName, firstTimeFormat, companyAddress, bankName, accountName, account, adminId, ) => fetch.post('/adminManage/editCompany', {
   companyId,
   companyName,
@@ -106,7 +106,7 @@ const editCompany = (companyId, companyName, companyRankCode, contactName, conta
   account,
   adminId,
 })
-/* 委外待审核列表
+/* 待审核列表
 */
 // const waitApprovalList = (page, size, contentType, contentData) => fetch.get('/entrustManager/waitApprovalList', {
 //     page,  //页码

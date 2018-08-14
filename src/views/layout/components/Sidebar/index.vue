@@ -5,7 +5,7 @@
     font-size: 18px;
     color: #fff;
     line-height: 50px;top:0;width:180px">
-      贷后管理
+      管理
     </div> -->
     <el-scrollbar wrapClass="scrollbar-wrapper" style="height:100%;">
       <el-menu mode="vertical" :show-timeout="200" :default-active="$route.path" :collapse="isCollapse"  background-color="#587AF4" text-color="#ffffff" active-text-color="#f56c6c">

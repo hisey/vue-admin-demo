@@ -4,7 +4,7 @@
     <img src="../../assets/images/newLogo.png" style="position:absolute;z-index:1;top:10px;left:10px;width:200px;" alt="">
     <div class="bg"></div>
     <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left">
-      <h4 class="title">贷后管理后台</h4>
+      <h4 class="title">管理后台</h4>
       <el-form-item prop="username">
         <!-- <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />

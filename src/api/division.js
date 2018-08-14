@@ -5,7 +5,7 @@ import {
 } from "@/enumerate";
 
 /* 
- 电催分案列表或队列列表 
+ 电催列表或队列列表 
  */
 const phoneCollectionList = (status, page, size, contentType, contentData, timeType, startTimeData, endTimeData) => fetch.get('/divisionManager/phoneCollectionList', {
   status: DivisionStata[status], //状态
@@ -18,17 +18,17 @@ const phoneCollectionList = (status, page, size, contentType, contentData, timeT
   endTimeData, //结束日期 
 })
 
-/* 加入电催分案队列 */
+/* 加入电催队列 */
 const joinPhoneDivisionArray = (parm, status) => fetch.post('/divisionManager/joinPhoneDivisionArray', {
   parm, //id组成的字符串
 })
 
-/* 加入委外分案队列 */
+/* 加入队列 */
 const joinEntrustDivisionArray = (parm, status) => fetch.post('/divisionManager/joinEntrustDivisionArray', {
   parm, //id组成的字符串
 })
 
-/*重新分案加入队列  */
+/*重新加入队列  */
 const afreshDivision = (parm) => fetch.post('/divisionManager/afreshDivision', {
   parm //id组成的字符串
 })
@@ -38,17 +38,17 @@ const quitPhoneDivisionArray = (parm, status) => fetch.post('/divisionManager/qu
   parm,
 })
 
-/* 踢出委外队列 */
+/* 踢出队列 */
 const quitEntrustDivisionArray = (parm, status) => fetch.post('/divisionManager/quitEntrustDivisionArray', {
   parm,
 })
 
-/* 确定分案 */
+/* 确定 */
 const confirmPhoneDivision = (parm) => fetch.post('/divisionManager/confirmPhoneDivision', {
   parm
 })
 
-/* 委外分案列表 */
+/* 列表 */
 const entrustCollectionList = (status, page, size, contentType, contentData, timeType, startTimeData, endTimeData) => fetch.get('/divisionManager/entrustCollectionList', {
   status: DivisionStata[status], //状态
   page, //页码
@@ -60,18 +60,18 @@ const entrustCollectionList = (status, page, size, contentType, contentData, tim
   endTimeData, //结束日期 
 })
 
-/*委外案件重新退回给电催团队  */
+/*案件重新退回给电催团队  */
 const backDivision = (parm) => fetch.post('/divisionManager/backDivision', {
   parm //id组成的字符串
 })
 
-/*委外案件重新退回给电催团队  */
+/*案件重新退回给电催团队  */
 const joinWaitArray = (parm) => fetch.post('/divisionManager/joinWaitArray', {
   parm //id组成的字符串
 })
 
 
-/*获取委外预览数据  */
+/*获取预览数据  */
 
 const previewEntrustDivision = (parm, arg) => fetch.post('/divisionManager/previewEntrustDivision', {
   parm, //id组成的字符串
@@ -85,7 +85,7 @@ const previewPhoneDivision = (parm, arg) => fetch.post('/divisionManager/preview
   arg
 })
 
-/*确定委外分案  */
+/*确定  */
 
 const confirmEntrustDivision = (parm) => fetch.post('/divisionManager/confirmEntrustDivision', {
   parm, //id组成的字符串
@@ -124,18 +124,18 @@ const downloadEntrustCollectionList = (status, page, size, contentType, contentD
 export {
   phoneCollectionList, //获取电催列表
   joinPhoneDivisionArray, //加入电催队列
-  joinEntrustDivisionArray, //加入委外队列
-  afreshDivision, //重新分案
+  joinEntrustDivisionArray, //加入队列
+  afreshDivision, //重新
   quitPhoneDivisionArray, //退出电催队列
-  quitEntrustDivisionArray, //退出委外队列
-  entrustCollectionList, //获取委外列表
-  backDivision, //委外退回电催
-  previewEntrustDivision, //预览委外案件
+  quitEntrustDivisionArray, //退出队列
+  entrustCollectionList, //获取列表
+  backDivision, //退回电催
+  previewEntrustDivision, //预览案件
   previewPhoneDivision, //预览电催案件
-  confirmPhoneDivision, //确认电催分案
-  confirmEntrustDivision, //确定委外分案
+  confirmPhoneDivision, //确认电催
+  confirmEntrustDivision, //确定
   belongCollectionList, //案件归属,
   downloadPhoneCollectionList, //下载电催案件列表
-  downloadEntrustCollectionList,  //下载委外案件列表
-  joinWaitArray,//加入电催分案
+  downloadEntrustCollectionList,  //下载案件列表
+  joinWaitArray,//加入电催
 }

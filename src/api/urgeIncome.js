@@ -1,5 +1,5 @@
 /* 
-催收管理模块API
+管理模块API
  */
 
 import fetch from '../utils/fetch'
@@ -9,7 +9,7 @@ import fetch from '../utils/fetch'
 const overdueBidList = (page, size, contentType, contentData, isCommitmentRepay, queryType, startData, endData) => fetch.get('/bidManager/overdueBidList', {
     page, //页码
     size, //每页条数
-    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5催收负责人)
+    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5负责人)
     contentData, //内容参数
     isCommitmentRepay, //是否承诺还款 0：否 1：是
     queryType, //查询类型(1逾期天数；2逾期总额；3逾期期数4:借款日期 5：结清日期)
@@ -23,7 +23,7 @@ const overdueBidList = (page, size, contentType, contentData, isCommitmentRepay,
 const exportOverdueBids = (page, size, contentType, contentData, isCommitmentRepay, queryType, startData, endData) => fetch.get('/bidManager/exportOverdueBids', {
     page, //页码
     size, //每页条数
-    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5催收负责人)
+    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5负责人)
     contentData, //内容参数
     isCommitmentRepay, //是否承诺还款 0：否 1：是
     queryType, //查询类型(1逾期天数；2逾期总额；3逾期期数4:借款日期 5：结清日期)
@@ -38,7 +38,7 @@ const exportOverdueBids = (page, size, contentType, contentData, isCommitmentRep
 const payedBidList = (page, size, contentType, contentData, isCommitmentRepay, queryType, startData, endData) => fetch.get('/bidManager/payedBidList', {
     page, //页码
     size, //每页条数
-    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5催收负责人)
+    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5负责人)
     contentData, //内容参数
     isCommitmentRepay, //是否承诺还款 0：否 1：是
     queryType, //查询类型(1逾期天数；2逾期总额；3逾期期数4:借款日期 5：结清日期)
@@ -52,7 +52,7 @@ const payedBidList = (page, size, contentType, contentData, isCommitmentRepay, q
 const exportPayedBids = (page, size, contentType, contentData, isCommitmentRepay, queryType, startData, endData) => fetch.get('/bidManager/exportPayedBids', {
     page, //页码
     size, //每页条数
-    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5催收负责人)
+    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5负责人)
     contentData, //内容参数
     isCommitmentRepay, //是否承诺还款 0：否 1：是
     queryType, //查询类型(1逾期天数；2逾期总额；3逾期期数4:借款日期 5：结清日期)
@@ -70,7 +70,7 @@ const exportPayedBids = (page, size, contentType, contentData, isCommitmentRepay
 const getSettleBidsList = (page, size, contentType, contentData, queryType, startData, endData) => fetch.get('/bidManager/getSettleBidsList', {
     page, //页码
     size, //每页条数
-    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5催收负责人)
+    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5负责人)
     contentData, //内容参数
     queryType, //查询类型(1逾期天数；2逾期总额；3逾期期数4:借款日期 5：结清日期)
     startData, //开始日期
@@ -82,7 +82,7 @@ const getSettleBidsList = (page, size, contentType, contentData, queryType, star
 const exportSettleBids = (page, size, contentType, contentData, queryType, startData, endData) => fetch.get('/bidManager/exportSettleBids', {
     page, //页码
     size, //每页条数
-    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5催收负责人)
+    contentType, //内容类型(1客户姓名；2手机号；3订单号；4客户地区；5负责人)
     contentData, //内容参数
     queryType, //查询类型(1逾期天数；2逾期总额；3逾期期数4:借款日期 5：结清日期)
     startData, //开始日期
@@ -93,13 +93,13 @@ const exportSettleBids = (page, size, contentType, contentData, queryType, start
 /* 账户基本信息 
 */
 const baseInfoDetail = (bidId) => fetch.get('/bidDetailManager/baseInfoDetail', {
-    bidId,  //催收账户ID
+    bidId,  //账户ID
 })
 
-/* 催收记录列表 
+/* 记录列表 
 */
 const collectionRecordList = (bidId, page, size) => fetch.get('/bidDetailManager/collectionRecordList', {
-    bidId,  //催收账户ID
+    bidId,  //账户ID
     page,  //当前页
     size,  //要显示的个数
 })
@@ -107,27 +107,27 @@ const collectionRecordList = (bidId, page, size) => fetch.get('/bidDetailManager
 /* 账单记录列表 
 */
 const billInfoDetail = (bidId) => fetch.get('/bidDetailManager/billInfoDetail', {
-    bidId,  //催收账户ID
+    bidId,  //账户ID
 })
 
-/* 外访记录列表 
+/* 记录列表 
 */
 const outboundRecordList = (bidId, page, size) => fetch.get('/bidDetailManager/outboundRecordList', {
-    bidId,  //催收账户ID，
+    bidId,  //账户ID，
     page: page || 1,
     size: size || 20,
 })
 
-/* 委外记录列表 
+/* 记录列表 
 */
 const entrustRecordList = (bidId, page, size) => fetch.get('/bidDetailManager/entrustRecordList', {
-    bidId,  //催收账户ID，
+    bidId,  //账户ID，
     page: page || 1,
     size: size || 20,
 })
 
 /* 
-获取催收短信模板
+获取短信模板
 */
 const getMsgTemplate = (bidId) => fetch.get('/bidDetailManager/getMsgTemplate', { bidId })
 
@@ -162,12 +162,12 @@ const callDetail = (bidId) => fetch.get('/bidDetailManager/callDetail', { bidId 
 const locationDetail = (bidId) => fetch.get('/bidDetailManager/locationDetail', { bidId })
 
 /* 
-获取委外公司
+获取公司
  */
 const getCompanyInfo = (bidId) => fetch.get('/bidDetailManager/getCompanyInfo', { bidId })
 
 /* 
-保存催收记录 
+保存记录 
 */
 const saveCollectionRecord = (collectionBidId, name, mobile, relation, status, commitmentTime, commitmentAmount, remark, collectionTime, entrustCompanyId, ) => fetch.post('/bidDetailManager/saveCollectionRecord', {
     collectionBidId,
@@ -195,13 +195,13 @@ const savePayedProof = (bidId, billId, amount, memo, filePath) => fetch.post('/b
 })
 
 /* 
-获取催收记录
+获取记录
 */
 
 const getCollectionInfo = (bidId) => fetch.get('/bidDetailManager/getCollectionInfo', { bidId })
 
 /*
-保存委外申请记录 
+保存申请记录 
  */
 const saveEntrustApplyRecord = (state, applyReason, collectionBidId) => fetch.post('/bidDetailManager/saveEntrustApplyRecord', {
     state,
@@ -210,7 +210,7 @@ const saveEntrustApplyRecord = (state, applyReason, collectionBidId) => fetch.po
 })
 
 /*
-保存外访申请记录 
+保存申请记录 
  */
 const saveOutboundApplyRecord = (state, applyReason, collectionBidId, address, companyAddress, otherAddress) => fetch.post('/bidDetailManager/saveOutboundApplyRecord', {
     state,
@@ -249,7 +249,7 @@ export {
     saveCollectionRecord,
     savePayedProof,
     getCollectionInfo,
-    saveEntrustApplyRecord,  //委外申请
-    saveOutboundApplyRecord,  //外访申请
+    saveEntrustApplyRecord,  //申请
+    saveOutboundApplyRecord,  //申请
     riskInfoDetail, //获取风控报告链接
 }

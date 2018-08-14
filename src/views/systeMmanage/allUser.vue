@@ -119,7 +119,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="所属组别" prop="groupId" v-if="editUserForm.form.roleId==3||editUserForm.form.roleId==4">
-          <!-- 当角色id等于3或4的时候（即账号角色为催收专员与催收主管的时候显示该字段） -->
+          <!-- 当角色id等于3或4的时候（即账号角色为专员与主管的时候显示该字段） -->
           <el-select v-model="editUserForm.form.groupId" placeholder="">
             <el-option v-for="item in roleGroupList" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
@@ -335,7 +335,7 @@ export default {
         let data = await getAdminInfo(id);
         if (data.code == 1) {
           data = data.data;
-          data.groupId = data.groupId == 0 ? "" : data.groupId   //催收经理与总监的角色组id是为'0'，转化为空字符串，java后台的坑，请知晓！
+          data.groupId = data.groupId == 0 ? "" : data.groupId   //经理与总监的角色组id是为'0'，转化为空字符串，java后台的坑，请知晓！
           for (let i in form) {
             form[i] = data[i]
           }

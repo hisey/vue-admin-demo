@@ -19,7 +19,7 @@ let divisionListMixin = {
         },
         {
           value: "1",
-          label: "分案日期",
+          label: "日期",
           name: "loanTime"
         },
         {
@@ -146,9 +146,9 @@ let divisionQueueMixin = {
     return {
       titlesKey: "QUEUE",
       titles: {
-        QUEUE: "分案队列",
-        PREVIEW: "分案预览",
-        RESULT: "分案结果"
+        QUEUE: "队列",
+        PREVIEW: "预览",
+        RESULT: "结果"
       },
       acountNum: "0",
       totalAmount: "0",

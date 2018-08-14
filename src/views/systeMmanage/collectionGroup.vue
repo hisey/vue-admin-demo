@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div class="clearfix">
-      <el-button size="small" type="primary" style="float:right" @click="dialogFormVisible = true">新增催收组</el-button>
+      <el-button size="small" type="primary" style="float:right" @click="dialogFormVisible = true">新增组</el-button>
     </div>
     <el-table style="margin-top:15px;" :data="list" v-loading.body="listLoading" element-loading-text="Loading"  fit highlight-current-row>
       <el-table-column align="center" label='ID' width="95">
@@ -39,8 +39,8 @@
         </template>
       </el-table-column>
     </el-table>
-    <!-- 添加催收组 --> 
-    <el-dialog title="催收组编辑/新建" :visible.sync="dialogFormVisible" class="formSubmit">
+    <!-- 添加组 --> 
+    <el-dialog title="组编辑/新建" :visible.sync="dialogFormVisible" class="formSubmit">
       <el-form :model="formSubmit" :rules="rules" ref="formSubmit" :inline="true">
         <el-form-item label="组名" :label-width="formLabelWidth" prop="name">
           <el-input v-model="formSubmit.name" auto-complete="off"></el-input>

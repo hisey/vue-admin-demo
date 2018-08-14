@@ -9,8 +9,8 @@
 
 * 程序设计说明
 
-  * [催收管理](/programming/collect.md)   
-  * [分案管理](/programming/division.md)   
+  * [管理](/programming/collect.md)   
+  * [管理](/programming/division.md)   
 
 * 所用组件
 

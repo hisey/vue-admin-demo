@@ -1,5 +1,5 @@
 <img  style="display:block;margin:40px auto;" src="./src/assets/images/newLogo.png">
-<center style="font-size:25px;">贷后管理系统前端说明文档</center >
+<center style="font-size:25px;">管理系统前端说明文档</center >
 
 ## 构建步骤
 
@@ -164,13 +164,13 @@ npm run build --report
 │  └─views               # 页面文件
 │      │  404.vue
 │      │
-│      ├─division        # 分案管理       
+│      ├─division        # 管理       
 │      │      assignRecord.vue
 │      │      caseAttr.vue
 │      │      outsourced.vue
 │      │      phoneUrge.vue
 │      │
-│      ├─foreignVisits   # 外访管理
+│      ├─foreignVisits   # 管理
 │      │      allCase.vue
 │      │      pendingCase.vue
 │      │
@@ -198,7 +198,7 @@ npm run build --report
 │      ├─login           # 登录
 │      │      index.vue
 │      │
-│      ├─outsourced      # 委外管理
+│      ├─outsourced      # 管理
 │      │      allCase.vue
 │      │      pendingCase.vue
 │      │
@@ -207,7 +207,7 @@ npm run build --report
 │      │      collectionGroup.vue
 │      │      entrustCompany.vue
 │      │
-│      └─urgeIncome     # 催收管理
+│      └─urgeIncome     # 管理
 │              overdue.vue
 │
 └─static                # 静态文件（不需要打包）

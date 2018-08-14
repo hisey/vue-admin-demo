@@ -3,7 +3,7 @@
     <el-menu-item index="">
       <div slot="title" style="text-align:center;
     font-size: 18px;
-    color: #fff;">demo贷后管理</div>
+    color: #fff;">demo管理</div>
     </el-menu-item>
     <template v-for="item in routes">
       <router-link v-if="!item.children" :to="item.path" :key="item.name">

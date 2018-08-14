@@ -34,7 +34,7 @@ export default {
       barChart: null,
       pieChart: null,
       items: [
-        { key: "collectionPreDivideCount", name: "分案", value: "0", className: "blue" }],
+        { key: "collectionPreDivideCount", name: "", value: "0", className: "blue" }],
       dataCount: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
   },
@@ -74,7 +74,7 @@ export default {
         },
         tooltip: {},
         xAxis: {
-          data: ["电催待分案"]
+          data: ["电催待"]
         },
         yAxis: {},
         series: [{

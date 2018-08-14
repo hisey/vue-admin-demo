@@ -12,12 +12,12 @@ const getRoleGroupList = () => fetch.get('/adminManage/roleGroupList', {})
 const getGroupAdminList = (groupIds) => fetch.get('/adminManage/groupAdminList', { groupIds })
 
 /*
-获取委外负责人列表 
+获取负责人列表 
  */
 const getEntrustAdminList = () => fetch.get('/adminManage/entrustAdminList', {})
 
 /*
-获取委外公司列表 
+获取公司列表 
  */
 const getDivisionCompanyList = (adminIds) => fetch.get('/adminManage/divisionCompanyList', { adminIds })
 

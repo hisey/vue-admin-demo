@@ -1,9 +1,9 @@
-/* 委外案件模块api
+/* 案件模块api
  */
 
 import fetch from '../utils/fetch'
 
-/* 委外案件列表 
+/* 案件列表 
 */
 const entrustManageList = (page, size, contentType, contentData) => fetch.get('/entrustManager/entrustManageList', {
     page,
@@ -12,7 +12,7 @@ const entrustManageList = (page, size, contentType, contentData) => fetch.get('/
     contentData  //内容参数
 })
 
-/* 委外待审核列表
+/* 待审核列表
 */
 const waitApprovalList = (page, size, contentType, contentData, status) => fetch.get('/entrustManager/waitApprovalList', {
     page,
@@ -29,7 +29,7 @@ const approvalView = (parm) => fetch.get('/entrustManager/approvalView', {
 })
 
 /**
- * 委外审批
+ * 审批
  */
 const approvalCheck = (collectionApplyIds, status, rejectReason, remark) => fetch.post('/entrustManager/approvalCheck',{
   collectionApplyIds, //申请表id集
@@ -39,7 +39,7 @@ const approvalCheck = (collectionApplyIds, status, rejectReason, remark) => fetc
 })
 
 /**
- * 下载委外待审批列表
+ * 下载待审批列表
  */
 const downloadEntrustManageList = (page, size, contentType, contentData, status) => fetch.get('/entrustManager/downloadEntrustManageList', {
   page,
@@ -50,7 +50,7 @@ const downloadEntrustManageList = (page, size, contentType, contentData, status)
 })
 
 /**
- * 下载委外待审批列表
+ * 下载待审批列表
  */
 const downloadWaitApprovalList = (page, size, contentType, contentData, status) => fetch.get('/entrustManager/downloadWaitApprovalList', {
   page,
