@@ -5,28 +5,12 @@ import {
   MessageBox,
   Message
 } from 'element-ui'
-import {
-  removeToken
-} from '@/utils/auth'
 import { basicUrl } from '@/utils/env'
-import { removeUserInfo, removeSideBar } from '@/utils/auth' // 验权
 
 let cancel, promiseArr = {}
-const CancelToken = axios.CancelToken;
 //请求拦截器
 axios.interceptors.request.use(config => {
   //发起请求时，取消掉当前正在进行的相同请求
-  // console.log("request:"+JSON(config));
-  // console.log(config.url)
-  if (config.url.indexOf("syncManual") > -1) {
-    config.timeout = 300000
-  }
-  if (promiseArr[config.url]) {
-    promiseArr[config.url]('操作取消')
-    promiseArr[config.url] = cancel
-  } else {
-    promiseArr[config.url] = cancel
-  }
   if (config.method === 'post') {
     config.data = qs.stringify({
       ...config.data
@@ -51,9 +35,7 @@ axios.interceptors.response.use(response => {
       cancelButtonText: '取消',
       type: 'warning'
     }).then(() => {
-      removeUserInfo();
-      removeSideBar();
-      location.reload();
+      // location.reload();
       // return Promise.reject(res)
     })
     return Promise.reject(res)
@@ -115,7 +97,6 @@ axios.interceptors.response.use(response => {
   } else {
     err.message = "连接到服务器失败"
   }
-  // Message.err(err.message)
   Message({
     message: "接口：" + err.response.config.url + ";" + err.message,
     type: "error",
@@ -124,17 +105,8 @@ axios.interceptors.response.use(response => {
   return Promise.reject(err.response)
 })
 
-// let basicUrl = ""
-// if (process.env.NODE_ENV == "development") {
-//   basicUrl = "http://localhost:9999"
-// } else {
-//   basicUrl = "http://193.112.202.42:9999"
-// }
 axios.defaults.baseURL = basicUrl
 //设置默认请求头
-// axios.defaults.headers = {
-//     'X-Requested-With': 'XMLHttpRequest'
-// }
 axios.defaults.timeout = 10000
 
 axios.defaults.withCredentials = true
