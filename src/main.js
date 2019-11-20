@@ -1,28 +1,31 @@
-import Vue from 'vue'
+import Vue from "vue";
 
-import 'normalize.css/normalize.css'// A modern alternative to CSS resets
+import "normalize.css/normalize.css"; // A modern alternative to CSS resets
 
-import ElementUI from 'element-ui'
+import ElementUI from "element-ui";
 // import '@/assets/css/index.scss'
-import locale from 'element-ui/lib/locale/lang/zh-CN' // lang i18n
+import locale from "element-ui/lib/locale/lang/zh-CN"; // lang i18n
 
-import '@/styles/index.scss' // global css
+import "@/styles/index.scss"; // global css
 
-import App from './App'
-import router from './router'
-import store from './store'
+import App from "./App";
+import router from "./router";
+import store from "./store";
 
-import '@/icons' // icon
-import '@/permission' // permission control
+import "@/icons"; // icon
+import "@/permission"; // permission control
+import * as filters from "@/filters";
 
-Vue.use(ElementUI, { locale })
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key]);
+});
 
-Vue.config.productionTip = false
+Vue.use(ElementUI, { locale });
+
+Vue.config.productionTip = false;
 
 new Vue({
-  el: '#app',
   router,
   store,
-  template: '<App/>',
-  components: { App }
-})
+  render: h => h(App)
+}).$mount("#app");

@@ -1,5 +1,5 @@
 // // import { login } from '@/api/login'
-// import { getToken, removeToken } from '@/utils/auth'
+// import { getToken, removeToken } from '@/utils/localStorage'
 // import { log } from 'util';
 
 // const user = {
@@ -41,7 +41,7 @@
 //     //     this.$message(res.msg);
 //     //   }
 
-//     //   // } 
+//     //   // }
 //     // },
 //     // return new Promise((resolve, reject) => {
 //     // login(username, userInfo.password).then(response => {

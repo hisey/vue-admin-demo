@@ -1,7 +1,11 @@
 <template>
   <div>
     <el-menu class="navbar" mode="horizontal">
-      <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
+      <hamburger
+        class="hamburger-container"
+        :toggleClick="toggleSideBar"
+        :isActive="sidebar.opened"
+      ></hamburger>
       <breadcrumb></breadcrumb>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -12,9 +16,7 @@
         <el-dropdown-menu class="user-dropdown" slot="dropdown">
           <!-- <router-link class="inlineBlock" to="/"> -->
           <el-dropdown-item>
-            <span @click="pwd.dialogFormVisible=true">
-              修改密码
-            </span>
+            <span @click="pwd.dialogFormVisible=true">修改密码</span>
           </el-dropdown-item>
           <!-- </router-link> -->
           <el-dropdown-item divided>
@@ -26,13 +28,28 @@
     <el-dialog title="修改密码" :visible.sync="pwd.dialogFormVisible" width="100px">
       <el-form :model="pwd.form" ref="modifyPwdForm" :rules="pwd.rules" label-width="80px">
         <el-form-item label="旧密码" prop="oldPassword">
-          <el-input type="password" v-model="pwd.form.oldPassword" auto-complete="off" placeholder="请输入旧密码"></el-input>
+          <el-input
+            type="password"
+            v-model="pwd.form.oldPassword"
+            auto-complete="off"
+            placeholder="请输入旧密码"
+          ></el-input>
         </el-form-item>
         <el-form-item label="新密码" prop="password">
-          <el-input type="password" v-model="pwd.form.password" auto-complete="off" placeholder="请输入新密码"></el-input>
+          <el-input
+            type="password"
+            v-model="pwd.form.password"
+            auto-complete="off"
+            placeholder="请输入新密码"
+          ></el-input>
         </el-form-item>
         <el-form-item label="确认密码" prop="confirmPassword">
-          <el-input type="password" v-model="pwd.form.confirmPassword" auto-complete="off" placeholder="请再次输入密码"></el-input>
+          <el-input
+            type="password"
+            v-model="pwd.form.confirmPassword"
+            auto-complete="off"
+            placeholder="请再次输入密码"
+          ></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -44,13 +61,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
-import { loginout, updatePassword } from '@/api/login'
-import { getUserInfo, removeUserInfo, removeSideBar } from '@/utils/auth' // 验权
+import { mapGetters } from "vuex";
+import Breadcrumb from "@/components/Breadcrumb";
+import Hamburger from "@/components/Hamburger";
+// import { loginout, updatePassword } from '@/api/login'
+import { getUserInfo, removeUserInfo, removeSideBar } from "@/utils/localStorage"; // 验权
 // let store = require('store')
-// import { removeToken } from '@/utils/auth' // 验权
+// import { removeToken } from '@/utils/localStorage' // 验权
 export default {
   components: {
     Breadcrumb,
@@ -68,10 +85,10 @@ export default {
     //   }
     // };
     let validatePass2 = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请再次输入密码'));
+      if (value === "") {
+        callback(new Error("请再次输入密码"));
       } else if (value !== this.pwd.form.password) {
-        callback(new Error('两次输入密码不一致!'));
+        callback(new Error("两次输入密码不一致!"));
       } else {
         callback();
       }
@@ -85,35 +102,38 @@ export default {
           confirmPassword: ""
         },
         rules: {
-          oldPassword: [{ required: true, message: '请输入旧密码', trigger: 'blur' }],
-          password: [{ required: true, message: '请输入新密码', trigger: 'blur' }],
-          confirmPassword: [{ required: true, message: '请再次输入密码', trigger: 'blur' }, { validator: validatePass2, trigger: 'blur' }]
+          oldPassword: [
+            { required: true, message: "请输入旧密码", trigger: "blur" }
+          ],
+          password: [
+            { required: true, message: "请输入新密码", trigger: "blur" }
+          ],
+          confirmPassword: [
+            { required: true, message: "请再次输入密码", trigger: "blur" },
+            { validator: validatePass2, trigger: "blur" }
+          ]
         }
       }
-    }
+    };
   },
   computed: {
-    ...mapGetters([
-      'sidebar',
-      'avatar'
-    ]),
+    ...mapGetters(["sidebar", "avatar"]),
     name() {
-      return getUserInfo().name
+      return getUserInfo().name;
     },
     roleName() {
-      return getUserInfo().roleName
+      return getUserInfo().roleName;
     },
     groupName() {
-      return getUserInfo().groupName
+      return getUserInfo().groupName;
     },
     lastLoginTime() {
-      return getUserInfo().lastLoginTime
+      return getUserInfo().lastLoginTime;
     }
-
   },
   methods: {
     toggleSideBar() {
-      this.$store.dispatch('ToggleSideBar')
+      this.$store.dispatch("ToggleSideBar");
     },
     async logout() {
       let data = await loginout();
@@ -123,7 +143,7 @@ export default {
           type: "success",
           duration: 1000,
           onClose: () => {
-            removeUserInfo()
+            removeUserInfo();
             removeSideBar();
             this.$router.push({ path: "/login" });
           }
@@ -131,40 +151,38 @@ export default {
       } else {
         this.$message({
           message: "安全退出失败，请联系管理员",
-          type: "warning",
-        })
+          type: "warning"
+        });
       }
       // this.$store.dispatch('LogOut').then(() => {
       //   location.reload() // 为了重新实例化vue-router对象 避免bug
       // })
     },
-    async handleModifyPwd() {
-
-    },
+    async handleModifyPwd() {},
     async saveModifyPwd() {
-      this.$refs.modifyPwdForm.validate(async (valid) => {
+      this.$refs.modifyPwdForm.validate(async valid => {
         if (valid) {
-          let data = await updatePassword(...Object.values(this.pwd.form))
+          let data = await updatePassword(...Object.values(this.pwd.form));
           if (data.code == 1) {
             this.$message({
-              message: '修改密码成功',
-              type: 'success'
+              message: "修改密码成功",
+              type: "success"
             });
             this.pwd.dialogFormVisible = false;
           } else {
             this.$message({
               message: data.errorMsg,
-              type: 'warning'
+              type: "warning"
             });
           }
         } else {
-          console.log('error submit!!');
+          console.log("error submit!!");
           return false;
         }
       });
     }
   }
-}
+};
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

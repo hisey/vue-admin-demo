@@ -1,12 +1,11 @@
-<img  style="display:block;margin:40px auto;" src="./src/assets/images/newLogo.png">
 <center style="font-size:25px;">管理系统前端说明文档</center >
 
 ## 构建步骤
 
-``` bash
+```bash
 
 # Clone project
-git clone http://code.demovip.com/demo/collection-html.git
+git clone https://github.com/hisey/vue-admin-demo.git
 
 # Install dependencies
 npm install
@@ -15,7 +14,10 @@ npm install
 npm run dev
 
 # build for production with minification
-npm run build
+npm run build:prod
+
+# build for test with minification
+npm run build:test
 
 # build for production and view the bundle analyzer report
 npm run build --report
@@ -23,7 +25,7 @@ npm run build --report
 
 ## 技术栈
 
-[vue](https://cn.vuejs.org/) + [bable](http://babeljs.io/) + [webpack](http://webpack.github.io/) + [es6](http://es6.ruanyifeng.com/)
+[vue](https://cn.vuejs.org/) + [babel](http://babeljs.io/) + [webpack](http://webpack.github.io/) + [es6](http://es6.ruanyifeng.com/)
 
 <img src="./icon/vue.png" width="70">
 <img src="./icon/add.png" width="30">
@@ -33,31 +35,31 @@ npm run build --report
 <img src="./icon/add.png" width="30">
 <img src="./icon/es6.png" width="70">
 
-## ui组件库
+## ui 组件库
 
 [elementUI](http://element.eleme.io/#/zh-CN)<br>
-<img width="70" src="./icon/element.png"> 
+<img width="70" src="./icon/element.png">
 
 ## 测试地址
-[浏览器打开](http://test.demovip.com:81)<br>
+
+<!-- [浏览器打开](http://test.demovip.com:81)<br> -->
 
 ## 部分界面展示
-<img src="./icon/login.png" width="300">
-<img src="./icon/home.png" width="300">
-<img src="./icon/demo1.png" width="300">
-<img src="./icon/demo2.png" width="300">
 
+<!-- <img src="./icon/login.png" width="300"> -->
+<!-- <img src="./icon/home.png" width="300"> -->
+<!-- <img src="./icon/demo1.png" width="300"> -->
+<!-- <img src="./icon/demo2.png" width="300"> -->
 
 ## 项目结构
-``` bash
+
+```bash
 │  .babelrc
 │  .editorconfig
 │  .eslintignore
 │  .eslintrc.js
 │  .gitignore
 │  .postcssrc.js
-│  .travis.yml
-│  app.js
 │  favicon.ico
 │  gulpfile.js
 │  index.html
@@ -65,21 +67,6 @@ npm run build --report
 │  package.json
 │  README.md
 │  sftpConfig.js
-│
-├─build                        # 构建脚本
-│      build.js
-│      check-versions.js
-│      logo.png
-│      utils.js
-│      vue-loader.conf.js
-│      webpack.base.conf.js
-│      webpack.dev.conf.js
-│      webpack.prod.conf.js
-│
-├─config                      # 相关构建配置
-│      dev.env.js
-│      index.js
-│      prod.env.js
 │
 ├─icon                        # README.md里面的图标.
 │      add.png
@@ -103,8 +90,8 @@ npm run build --report
 │  │  │      404.png
 │  │  │      404_cloud.png
 │  │  │
-│  │  └─images               
-│  │          login-bg.jpg
+│  │  └─images
+│  │         login-bg.jpg
 │  │
 │  ├─components              # 项目ui组件
 │  │  ├─Breadcrumb
@@ -114,7 +101,7 @@ npm run build --report
 │  │  │      index.vue
 │  │  │
 │  │  └─SvgIcon
-│  │          index.vue
+│  │         index.vue
 │  │
 │  ├─filters              # 全局过滤器
 │  │      index.js
@@ -123,17 +110,17 @@ npm run build --report
 │  │  │  index.js
 │  │  │
 │  │  └─svg
-│  │          example.svg
-│  │          eye.svg
-│  │          form.svg
-│  │          home.svg
-│  │          password.svg
-│  │          role.svg
-│  │          table.svg
-│  │          tree.svg
-│  │          urgeIncome.svg
-│  │          user.svg
-│  │          users.svg
+│  │     example.svg
+│  │     eye.svg
+│  │     form.svg
+│  │     home.svg
+│  │     password.svg
+│  │     role.svg
+│  │     table.svg
+│  │     tree.svg
+│  │     urgeIncome.svg
+│  │     user.svg
+│  │     users.svg
 │  │
 │  ├─router               # 路由配置
 │  │      index.js
@@ -164,22 +151,6 @@ npm run build --report
 │  └─views               # 页面文件
 │      │  404.vue
 │      │
-│      ├─division        # 管理       
-│      │      assignRecord.vue
-│      │      caseAttr.vue
-│      │      outsourced.vue
-│      │      phoneUrge.vue
-│      │
-│      ├─foreignVisits   # 管理
-│      │      allCase.vue
-│      │      pendingCase.vue
-│      │
-│      ├─home            # 首页
-│      │      index.vue
-│      │
-│      ├─iconDemo        # 示例demo
-│      │      iconList.vue
-│      │
 │      ├─layout          # 所需的layout
 │      │  │  Layout.vue
 │      │  │
@@ -197,18 +168,6 @@ npm run build --report
 │      │
 │      ├─login           # 登录
 │      │      index.vue
-│      │
-│      ├─outsourced      # 管理
-│      │      allCase.vue
-│      │      pendingCase.vue
-│      │
-│      ├─systeMmanage    # 系统管理
-│      │      allUser.vue
-│      │      collectionGroup.vue
-│      │      entrustCompany.vue
-│      │
-│      └─urgeIncome     # 管理
-│              overdue.vue
 │
 └─static                # 静态文件（不需要打包）
         .gitkeep

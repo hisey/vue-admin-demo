@@ -1,3 +1,6 @@
-build/*.js
-config/*.js
-src/assets
+/build/
+/mock/
+/config/
+/dist/
+/static/
+/*.js

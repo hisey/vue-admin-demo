@@ -1,45 +1,50 @@
 <template>
-<div style="height:100%;">
+  <div style="height:100%;">
     <!-- <div style="height: 50px;text-align:center;
     background: #F56C6C;
     font-size: 18px;
     color: #fff;
     line-height: 50px;top:0;width:180px">
       管理
-    </div> -->
+    </div>-->
     <el-scrollbar wrapClass="scrollbar-wrapper" style="height:100%;">
-      <el-menu mode="vertical" :show-timeout="200" :default-active="$route.path" :collapse="isCollapse"  background-color="#587AF4" text-color="#ffffff" active-text-color="#f56c6c">
-      <!-- <div>提sad</div> -->
-        <sidebar-item :routes="routes" ></sidebar-item>
+      <el-menu
+        mode="vertical"
+        :show-timeout="200"
+        :default-active="$route.path"
+        :collapse="isCollapse"
+        background-color="#587AF4"
+        text-color="#ffffff"
+        active-text-color="#f56c6c"
+      >
+        <!-- <div>提sad</div> -->
+        <sidebar-item :routes="routes"></sidebar-item>
       </el-menu>
     </el-scrollbar>
-    </div>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import SidebarItem from './SidebarItem'
-import { getSideBar } from '@/utils/auth' // 验权
+import { mapGetters } from "vuex";
+import SidebarItem from "./SidebarItem";
+import { getSideBar } from "@/utils/localStorage"; // 验权
 
 export default {
   components: { SidebarItem },
   computed: {
-    ...mapGetters([
-      'sidebar'
-    ]),
+    ...mapGetters(["sidebar"]),
     routes() {
       // return this.$router.options.routes
       // return this.$router.options.routes
-      return getSideBar()
+      return getSideBar();
     },
     isCollapse() {
-      return !this.sidebar.opened
+      return !this.sidebar.opened;
     }
   },
-  created () {
+  created() {
     // console.log(getSideBar());
     // console.log(this.$router.options.routes);
-    
   }
-}
+};
 </script>
