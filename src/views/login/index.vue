@@ -1,8 +1,10 @@
 <template>
-  <div class="login-wrapper">
-    <div class="bg"></div>
+  <div :class="$style.login_wrapper">
+    <div :class="$style.bg"></div>
     <div :class="$style.success">This should be red</div>
     <div :class="$style.success">{{time|timeAgo}}</div>
+    <el-button type="primary">按钮</el-button>
+    
   </div>
 </template>
 
@@ -125,31 +127,14 @@ input:-webkit-autofill {
 .bold {
   font-weight: bold;
 }
-.login-wrapper {
+.login_wrapper {
   display: flex; //flex布局
   justify-content: center; //使子项目水平居中
   align-items: center; //使子项目垂直居中
   width: 100%;
   height: 100%;
-  /*.lang
-    position fixed
-    right 1.5rem
-    bottom @right
-    width 5rem
-    .el-input__icon
-      display none
-    input
-      height 1.75rem
-      border none
-      padding-right 10px
-      text-align center
-      color $color-white-dark
-      background-color rgba(255,255,255,.4)
-      &:hover
-        color $color-white
-        background-color rgba(255,255,255,.25)*/
 }
-.login-wrapper {
+.login_wrapper {
   .bg {
     position: absolute;
     left: 0;
@@ -163,44 +148,44 @@ input:-webkit-autofill {
     background-image: url("../../assets/images/login-bg.jpg");
   }
 }
-.login-wrapper .title {
-  position: relative;
-  margin: 0 0 1rem;
-  text-align: center;
-  z-index: 1;
-  font-size: 20px;
-}
-.login-wrapper form {
-  margin-bottom: 80px;
-  width: 15rem;
-  // margin: 0 auto;
-  // display: table-cell;
-  // vertical-align: middle;
-}
-.login-wrapper > form .el-input__inner {
-  color: #475669;
-  border-color: #99a9bf;
-  background-color: transparent;
-}
-.login-wrapper > form .el-input__inner:focus {
-  color: #1f2d3d;
-  border-color: #1f2d3d;
-}
-.login-wrapper .login-button {
-  width: 100%;
-}
-.login-wrapper .login-button.error {
-  animation: shake 0.5s;
-}
-.code {
-  // width: 114px;
-  height: 40px;
-  // border: 1px solid red;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 3px;
-}
+// .login-wrapper .title {
+//   position: relative;
+//   margin: 0 0 1rem;
+//   text-align: center;
+//   z-index: 1;
+//   font-size: 20px;
+// }
+// .login-wrapper form {
+//   margin-bottom: 80px;
+//   width: 15rem;
+//   // margin: 0 auto;
+//   // display: table-cell;
+//   // vertical-align: middle;
+// }
+// .login-wrapper > form .el-input__inner {
+//   color: #475669;
+//   border-color: #99a9bf;
+//   background-color: transparent;
+// }
+// .login-wrapper > form .el-input__inner:focus {
+//   color: #1f2d3d;
+//   border-color: #1f2d3d;
+// }
+// .login-wrapper .login-button {
+//   width: 100%;
+// }
+// .login-wrapper .login-button.error {
+//   animation: shake 0.5s;
+// }
+// .code {
+//   // width: 114px;
+//   height: 40px;
+//   // border: 1px solid red;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   border-radius: 3px;
+// }
 </style>
 
 

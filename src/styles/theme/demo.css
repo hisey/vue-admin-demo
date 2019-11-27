@@ -1,0 +1,10 @@
+body {
+  height: 400px;
+}
+button {
+  background-color: red;
+}
+.el-button {
+  color: red;
+  background-color: red;
+}

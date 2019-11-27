@@ -21,12 +21,11 @@ module.exports = {
     }
   },
   css: {
-    requireModuleExtension:false,
+    requireModuleExtension: true,
+    // modules: false,
     loaderOptions: {
       css: {
         modules: true,
-        // localIdentName: "localIdentName: '[local]_[hash:base64:8]'",
-        // camelCase: "only",
       },
       scss: {
         // 全局变量
