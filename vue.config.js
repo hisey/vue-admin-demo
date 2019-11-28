@@ -1,4 +1,8 @@
-const autoprefixer = require("autoprefixer");
+// const autoprefixer = require("autoprefixer");
+const path = require("path");
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
 // const pxtorem = require("postcss-pxtorem");
 module.exports = {
   publicPath: process.env.NODE_ENV == "development" ? "/" : "./",
@@ -25,7 +29,7 @@ module.exports = {
     // modules: false,
     loaderOptions: {
       css: {
-        modules: true,
+        modules: true
       },
       scss: {
         // 全局变量
@@ -46,5 +50,23 @@ module.exports = {
         return assetFilename.endsWith(".js");
       }
     }
+  },
+  chainWebpack(config) {
+    // set svg-sprite-loader
+    config.module
+      .rule("svg")
+      .exclude.add(resolve("src/icons"))
+      .end();
+    config.module
+      .rule("icons")
+      .test(/\.svg$/)
+      .include.add(resolve("src/icons"))
+      .end()
+      .use("svg-sprite-loader")
+      .loader("svg-sprite-loader")
+      .options({
+        symbolId: "icon-[name]"
+      })
+      .end();
   }
 };
