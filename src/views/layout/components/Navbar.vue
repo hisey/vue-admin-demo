@@ -9,7 +9,7 @@
       <breadcrumb></breadcrumb>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <span>上次登录时间：{{lastLoginTime}}&nbsp;&nbsp;&nbsp;&nbsp;{{groupName}}&nbsp;&nbsp;{{roleName}} &nbsp;&nbsp;{{name}}</span>
+          <!-- <span>上次登录时间：{{lastLoginTime}}&nbsp;&nbsp;&nbsp;&nbsp;{{groupName}}&nbsp;&nbsp;{{roleName}} &nbsp;&nbsp;{{name}}</span> -->
           <!-- <img class="user-avatar" src="src/assets/404_images/404_cloud.png"> -->
           <i class="el-icon-caret-bottom"></i>
         </div>

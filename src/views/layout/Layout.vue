@@ -11,7 +11,9 @@
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
       <navbar></navbar>
-      <app-main v-if="isRouterAlive"></app-main>
+      <app-main v-if="isRouterAlive">
+         </router-view>
+      </app-main>
     </div>
   </div>
 </template>

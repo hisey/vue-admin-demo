@@ -23,7 +23,7 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
 });
 
-Vue.use(ElementUI, { locale });
+Vue.use(ElementUI, { locale, size: "small", zIndex: 3000 });
 
 Vue.config.productionTip = false;
 

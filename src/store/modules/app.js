@@ -6,9 +6,14 @@ const app = {
       opened: !+Cookies.get("sidebarStatus"),
       withoutAnimation: false
     },
-    device: "desktop"
+    device: "desktop",
+    comtyId:Cookies.get("comtyId"),
   },
   mutations: {
+    SET_COMTYID: (state, comtyId) => {
+      Cookies.set("comtyId", comtyId);
+      state.comtyId = comtyId;
+    },
     TOGGLE_SIDEBAR: state => {
       if (state.sidebar.opened) {
         Cookies.set("sidebarStatus", 1);

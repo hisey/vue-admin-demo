@@ -1,5 +1,5 @@
 <template>
-  <section class="app-main">
+  <section :class="$style.app_main">
     <transition
       name="fade-transform"
       mode="out-in"
@@ -20,3 +20,9 @@ export default {
   }
 };
 </script>
+<style lang="scss" module>
+.app_main {
+  min-height: 100%;
+  padding: 20px;
+}
+</style>

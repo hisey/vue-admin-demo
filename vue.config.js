@@ -16,7 +16,7 @@ module.exports = {
     hotOnly: true,
     proxy: {
       "/api": {
-        target: "http://192.168.1.240:53000/api", //开发
+        target: "http://10.220.202.26:53000/api", //开发
         changeOrigin: true,
         pathRewrite: {
           "^/api/": ""

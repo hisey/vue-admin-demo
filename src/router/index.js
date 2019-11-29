@@ -16,21 +16,25 @@ export const constantRouterMap = [
     component: () => import("@/views/404").then(m => m.default),
     hidden: true
   },
-  // {
-  //   path: "",
-  //   component: Layout,
-  //   redirect: "/login",
-  //   name: "home",
-  // },
   {
-    path: "/icon",
+    path: "/",
     component: Layout,
-    redirect: "/icon",
-    name: "icon",
-    // hidden: true,
+    // name: "Layout",
+    hidden: true,
+    // redirect: "/icon",
     children: [
       {
+        name: "home",
+        hidden: true,
         path: "",
+        component: () =>
+          import("@/views/home").then(m => m.default),
+        meta: { title: "首页", icon: "home" }
+      },
+      {
+        name: "icon",
+        hidden: false,
+        path: "icon",
         component: () =>
           import("@/views/iconDemo/iconList").then(m => m.default),
         meta: { title: "图标示例", icon: "form" }
