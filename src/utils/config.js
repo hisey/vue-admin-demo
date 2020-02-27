@@ -1,10 +1,17 @@
-let [basicUrl, basicImgUrl, uploadUrl] = [];
-if (process.env.NODE_ENV == "development") {
-  basicUrl = "api/";
-  uploadUrl = basicUrl + "/commonManager/filesUpload";
-} else {
-  basicUrl = "http://test.demovip.com:8001";
-  uploadUrl = basicUrl + "/commonManager/filesUpload";
-}
-
-export { basicUrl, basicImgUrl, uploadUrl };
+let config = {
+  development: {
+    basicUrl: "api/",
+    uploadUrl: "api/commonManager/filesUpload"
+  },
+  test: {
+    basicUrl: "api/",
+    uploadUrl: "api/commonManager/filesUpload"
+  },
+  production: {
+    basicUrl: "api/",
+    uploadUrl: "api/commonManager/filesUpload"
+  }
+};
+let configObj = config[process.env.NODE_ENV];
+export let basicUrl = configObj.basicUrl;
+export let uploadUrl = configObj.uploadUrl;

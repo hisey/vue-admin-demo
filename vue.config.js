@@ -1,5 +1,7 @@
 // const autoprefixer = require("autoprefixer");
 const path = require("path");
+const WebpackBar = require("webpackbar");
+
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -38,6 +40,9 @@ module.exports = {
     }
   },
   configureWebpack: {
+    plugins:[
+      new WebpackBar()
+    ],
     //警告 webpack 的性能提示
     performance: {
       hints: "warning",
