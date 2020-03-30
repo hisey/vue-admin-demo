@@ -3,7 +3,7 @@ let config = {
     basicUrl: "api/",
     uploadUrl: "api/commonManager/filesUpload"
   },
-  test: {
+  testing: {
     basicUrl: "api/",
     uploadUrl: "api/commonManager/filesUpload"
   },
